@@ -1,3 +1,0 @@
-C:\Users\Andy\Source\Repos\TradeMeAPI\TradeMeAPI\bin\Debug\TradeMeAPI.exe.config
-C:\Users\Andy\Source\Repos\TradeMeAPI\TradeMeAPI\obj\Debug\TradeMeAPI.exe
-C:\Users\Andy\Source\Repos\TradeMeAPI\TradeMeAPI\obj\Debug\TradeMeAPI.pdb

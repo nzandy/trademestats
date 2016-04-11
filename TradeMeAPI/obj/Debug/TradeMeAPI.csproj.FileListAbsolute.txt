@@ -1,6 +1,0 @@
-c:\users\andy\documents\visual studio 2015\Projects\TradeMeAPI\TradeMeAPI\bin\Debug\TradeMeAPI.exe.config
-C:\Users\Andy\Documents\Visual Studio 2015\Projects\TradeMeAPI\TradeMeAPI\bin\Debug\TradeMeAPI.exe
-C:\Users\Andy\Documents\Visual Studio 2015\Projects\TradeMeAPI\TradeMeAPI\bin\Debug\TradeMeAPI.pdb
-C:\Users\Andy\Documents\Visual Studio 2015\Projects\TradeMeAPI\TradeMeAPI\obj\Debug\TradeMeAPI.csprojResolveAssemblyReference.cache
-C:\Users\Andy\Documents\Visual Studio 2015\Projects\TradeMeAPI\TradeMeAPI\obj\Debug\TradeMeAPI.exe
-C:\Users\Andy\Documents\Visual Studio 2015\Projects\TradeMeAPI\TradeMeAPI\obj\Debug\TradeMeAPI.pdb
