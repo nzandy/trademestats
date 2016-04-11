@@ -18,8 +18,9 @@ namespace TradeMeAPI {
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("OAuth", GetAuthorizationHeader());
             client.GetAsync("https://api.tmsandbox.co.nz/v1/Search/Property/Rental.json").ContinueWith(
-                (requestTask) => {
+                async (requestTask) => {
                     HttpResponseMessage response = requestTask.Result;
+                    string json = await response.Content.ReadAsStringAsync();
                 });
 
             Console.ReadLine();
