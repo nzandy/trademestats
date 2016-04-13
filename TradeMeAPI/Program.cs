@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,14 @@ namespace TradeMeAPI {
 		const string SIGNATURE_METHOD = "PLAINTEXT";
 
 		static void Main(string[] args) {
-			IEnumerable<RentalListing> listings;
+			ListingContainer jsonResult;
+
+			JsonSerializerSettings settings = new JsonSerializerSettings() {
+				Error = delegate(object sender, ErrorEventArgs errorArgs) {
+					Console.WriteLine(errorArgs.ErrorContext.Error);
+				}
+			};
+
 
 			HttpClient client = new HttpClient();
 			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("OAuth", GetAuthorizationHeader());
@@ -24,7 +32,7 @@ namespace TradeMeAPI {
 				async (requestTask) => {
 					HttpResponseMessage response = requestTask.Result;
 					string json = await response.Content.ReadAsStringAsync();
-					listings = JsonConvert.DeserializeObject<List<RentalListing>>(json);
+					jsonResult = JsonConvert.DeserializeObject<ListingContainer>(json, settings);
 				});
 
 			Console.ReadLine();
