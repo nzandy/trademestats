@@ -5,6 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TradeMeAPI.Models {
-    class RentalListing {
-    }
+	public class RentalListing {
+
+		public int ListingId { get; set; }
+		public string Title { get; set; }
+		public string Category { get; set; }
+		public int StartPrice { get; set; }
+		public string StartDate { get; set; }
+	}
 }
