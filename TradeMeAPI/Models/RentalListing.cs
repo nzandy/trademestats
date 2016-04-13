@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace TradeMeAPI.Models {
 	public class RentalListing {
-
 		public int ListingId { get; set; }
 		public string Title { get; set; }
 		public string Category { get; set; }
