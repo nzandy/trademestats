@@ -21,12 +21,11 @@ namespace TradeMeAPI.Models {
 		public string Category { get; set; }
 		public int StartPrice { get; set; }
 
-		private string _trademeFormatStartDate;
-		[JsonProperty("StartDate")]
-		public string TrademeFormatStartDate {
-			get { return _trademeFormatStartDate; }
+		private string _startDate;
+		public string StartDate {
+			get { return _startDate; }
 			set {
-				_trademeFormatStartDate = value;
+				_startDate = value;
 				StartDateConverted = GetDateTimeFromUnixEpoch(GetUnixEpochFromTrademeDate(value)); }
 		}
 
