@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace TradeMeAPI.Models {
 
@@ -18,6 +20,25 @@ namespace TradeMeAPI.Models {
 		public string Title { get; set; }
 		public string Category { get; set; }
 		public int StartPrice { get; set; }
-		public string StartDate { get; set; }
+
+		private string _startDate;
+		public string StartDate {
+			get { return _startDate; }
+			set {
+				_startDate = value;
+				StartDateConverted = GetDateTimeFromUnixEpoch(GetUnixEpochFromTrademeDate(value)); }
+		}
+
+		public DateTime? StartDateConverted { get; private set; }
+
+		public double GetUnixEpochFromTrademeDate(string trademeDate) {
+			string insideQuotes = Regex.Match(trademeDate, @"\(([^)]*)\)").Groups[1].Value;
+			return Double.Parse(insideQuotes);
+		}
+
+		public DateTime? GetDateTimeFromUnixEpoch(double unixEpoch) {
+			DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+			return dateTime.AddMilliseconds(unixEpoch);
+		}
 	}
 }
