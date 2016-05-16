@@ -28,6 +28,10 @@ namespace TradeMeAPI.Connectors {
 		protected TrademeAPIConnector() {
 			Client = new HttpClient();
 			Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("OAuth", GetAuthorizationHeader());
+			Client.BaseAddress = new Uri("https://api.tmsandbox.co.nz/");
+			Client.DefaultRequestHeaders.Accept.Clear();
+			Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
 			Settings = new JsonSerializerSettings() {
 				Error = delegate (object sender, ErrorEventArgs errorArgs) {
 					Console.WriteLine(errorArgs.ErrorContext.Error);

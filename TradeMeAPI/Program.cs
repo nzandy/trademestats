@@ -16,8 +16,6 @@ namespace TradeMeAPI {
 
 
 		static void Main(string[] args) {
-			
-			Console.ReadLine();
 
 			var rentalConnector = new TrademeRentalConnector();
 			IEnumerable <RentalListing> rentalListings = rentalConnector.GetRentals();

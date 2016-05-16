@@ -7,6 +7,6 @@ using TradeMeAPI.Models;
 
 namespace TradeMeAPI.Connectors {
 	interface IRentalConnector {
-		Task<IEnumerable<RentalListing>> GetRentals();
+		IEnumerable<RentalListing> GetRentals();
 	}
 }

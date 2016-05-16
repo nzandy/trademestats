@@ -11,23 +11,38 @@ using System.Net.Http.Headers;
 namespace TradeMeAPI.Connectors {
 	public class TrademeRentalConnector : TrademeAPIConnector, IRentalConnector {
 
+		const int PAGE_SIZE = 500;
+		const string RENTAL_PATH = "v1/Search/Property/Rental.json?";
 		public TrademeRentalConnector() : base() {
 
 		}
 
 		public IEnumerable<RentalListing> GetRentals() {
-			ListingContainer listings;
+			var listingResponse = new ListingContainer();
+			var allListings = new List<RentalListing>();
 
-			Client.BaseAddress = new Uri("https://api.tmsandbox.co.nz/");
-			Client.DefaultRequestHeaders.Accept.Clear();
-			Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			int numResults;
+			int pageSize;
+			int pageNum = 1;
 
-			HttpResponseMessage response = Client.GetAsync("v1/Search/Property/Rental.json").Result;
-			string json = response.Content.ReadAsStringAsync().Result;
-			listings = JsonConvert.DeserializeObject<ListingContainer>(json, Settings);
+			do {
+				HttpResponseMessage response = Client.GetAsync(GetRequestUri(pageNum)).Result;
+				string json = response.Content.ReadAsStringAsync().Result;
 
+				listingResponse = JsonConvert.DeserializeObject<ListingContainer>(json, Settings);
 
-			return listings.List;
+				numResults = listingResponse.TotalCount;
+
+				allListings.AddRange(listingResponse.List);
+
+				pageNum++;
+			} while (PAGE_SIZE * (pageNum-1) < numResults);
+
+			return allListings;
+		}
+
+		private string GetRequestUri(int pageNum) {
+			return String.Format("v1/Search/Property/Rental.json?rows={0}&page={1}", PAGE_SIZE, pageNum);
 		}
 	}
 }
