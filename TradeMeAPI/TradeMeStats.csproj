@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connectors\IRentalConnector.cs" />
+    <Compile Include="Connectors\TrademeAPIConnector.cs" />
+    <Compile Include="Connectors\TrademeRentalConnector.cs" />
     <Compile Include="Models\RentalListing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
