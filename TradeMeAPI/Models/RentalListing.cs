@@ -15,11 +15,29 @@ namespace TradeMeAPI.Models {
 		public IEnumerable<RentalListing> List { get; set; }
 	}
 
+	public class Agency {
+		public int Id { get; set; }
+		public string Name { get; set; }
+		public bool IsRealEstateAgency { get; set; }
+
+	}
+
 	public class RentalListing {
 		public int ListingId { get; set; }
 		public string Title { get; set; }
-		public string Category { get; set; }
-		public int StartPrice { get; set; }
+
+		public int RegionId { get; set; }
+		public string Region { get; set; }
+		public int SuburbId { get; set; }
+		public string Suburb { get; set; }
+		public string District { get; set; }
+
+		// Property Details
+		public int RentPerWeek { get; set; }
+		public int Bedrooms { get; set; }
+		public int Bathrooms { get; set; }
+		
+		public Agency Agency { get; set; }
 
 		private string _startDate;
 		public string StartDate {

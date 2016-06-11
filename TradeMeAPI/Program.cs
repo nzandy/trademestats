@@ -19,6 +19,8 @@ namespace TradeMeAPI {
 
 			var rentalConnector = new TrademeRentalConnector();
 			IEnumerable <RentalListing> rentalListings = rentalConnector.GetRentals();
+			//save listings to database.
+
 
 			// try build a GET request for trademe rental properties.
 		}
