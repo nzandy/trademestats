@@ -14,7 +14,7 @@ namespace TrademeListingMonitor {
 			TrademeStatsContext dbContext = new TrademeStatsContext();
 
 			foreach (var rentalListing in rentalListings) {
-				trace.WriteLine($"Adding listing ID: {rentalListing.Id}");
+				trace.WriteLine($"Adding listing ID: {rentalListing.ListingId}");
 				dbContext.RentalListings.Add(rentalListing);
 			}
 

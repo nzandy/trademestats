@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace TradeMeAPI.Models {
 
@@ -23,7 +24,8 @@ namespace TradeMeAPI.Models {
 	}
 
 	public class RentalListing {
-		public int Id { get; set; }
+		[Key]
+		public int ListingId { get; set; }
 		public string Title { get; set; }
 
 		public int RegionId { get; set; }
