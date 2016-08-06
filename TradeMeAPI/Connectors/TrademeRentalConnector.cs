@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using TradeMeAPI.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
-using System.Net.Http.Headers;
 
 namespace TradeMeAPI.Connectors {
 	public class TrademeRentalConnector : TrademeAPIConnector, IRentalConnector {
 
 		const int PAGE_SIZE = 500;
 		const string RENTAL_PATH = "v1/Search/Property/Rental.json?";
-		public TrademeRentalConnector() : base() {
 
+		private TraceListener _trace;
+		public TrademeRentalConnector(TraceListener trace) : base() {
+			_trace = trace;
 		}
 
 		public IEnumerable<RentalListing> GetRentals() {
@@ -22,11 +20,14 @@ namespace TradeMeAPI.Connectors {
 			var allListings = new List<RentalListing>();
 
 			int numResults;
-			int pageSize;
 			int pageNum = 1;
 
+			_trace.WriteLine($"Attempting to fetch rental listings from {Client.BaseAddress}");
+			_trace.WriteLine($"Page size is {PAGE_SIZE}");
 			do {
-				HttpResponseMessage response = Client.GetAsync(GetRequestUri(pageNum)).Result;
+				string requestUri = GetRequestUri(pageNum);
+				
+				HttpResponseMessage response = Client.GetAsync(requestUri).Result;
 				string json = response.Content.ReadAsStringAsync().Result;
 
 				listingResponse = JsonConvert.DeserializeObject<ListingContainer>(json, Settings);
@@ -37,12 +38,13 @@ namespace TradeMeAPI.Connectors {
 
 				pageNum++;
 			} while (PAGE_SIZE * (pageNum-1) < numResults);
-
+			_trace.WriteLine($"Successfuly parsed {allListings.Count} rental listings.");
 			return allListings;
 		}
 
 		private string GetRequestUri(int pageNum) {
-			return String.Format("v1/Search/Property/Rental.json?rows={0}&page={1}", PAGE_SIZE, pageNum);
+			_trace.WriteLine($"Fetching page number {pageNum} of results");
+			return string.Format($"v1/Search/Property/Rental.json?rows={PAGE_SIZE}&page={pageNum}");
 		}
 	}
 }
