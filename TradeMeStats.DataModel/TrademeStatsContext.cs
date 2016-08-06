@@ -3,7 +3,11 @@ using TradeMeAPI.Models;
 
 namespace TradeMeStats.DataModel {
 	public class TrademeStatsContext : DbContext {
-		DbSet<RentalListing> RentalListings { get; set; }
-		DbSet<Agency> Angencies { get; set; }
+		public DbSet<RentalListing> RentalListings { get; set; }
+		public DbSet<Agency> Angencies { get; set; }
+
+		public TrademeStatsContext() : base("TrademeStats") {
+
+		}
 	}
 }

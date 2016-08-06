@@ -23,7 +23,7 @@ namespace TradeMeAPI.Models {
 	}
 
 	public class RentalListing {
-		public int ListingId { get; set; }
+		public int Id { get; set; }
 		public string Title { get; set; }
 
 		public int RegionId { get; set; }
