@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
+using TradeMeAPI.Attributes;
 
 namespace TradeMeAPI.Models {
 
@@ -23,6 +20,7 @@ namespace TradeMeAPI.Models {
 
 	}
 
+	[TrademeListing("v1/Search/Property/Rental.json?")]
 	public class RentalListing {
 		[Key]
 		public int ListingId { get; set; }

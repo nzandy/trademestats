@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\TrademeListingAttribute.cs" />
     <Compile Include="Connectors\IRegionConnector.cs" />
     <Compile Include="Connectors\IRentalConnector.cs" />
     <Compile Include="Connectors\TrademeAPIConnector.cs" />

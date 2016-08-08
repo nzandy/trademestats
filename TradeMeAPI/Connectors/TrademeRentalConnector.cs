@@ -8,7 +8,7 @@ namespace TradeMeAPI.Connectors {
 	public class TrademeRentalConnector : TrademeAPIConnector, IRentalConnector {
 
 		const int PAGE_SIZE = 500;
-		const string RENTAL_PATH = "v1/Search/Property/Rental.json?";
+		//const string RENTAL_PATH = "v1/Search/Property/Rental.json?";
 
 		private TraceListener _trace;
 		public TrademeRentalConnector(TraceListener trace) : base() {
