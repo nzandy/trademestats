@@ -6,24 +6,15 @@ using TradeMeAPI.Attributes;
 
 namespace TradeMeAPI.Models {
 
-	public class ListingContainer {
-		public int TotalCount { get; set; }
-		public int Page { get; set; }
-		public int PageSize { get; set; }
-		public IEnumerable<RentalListing> List { get; set; }
-	}
-
 	public class Agency {
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public bool IsRealEstateAgency { get; set; }
-
 	}
 
 	[TrademeListing("v1/Search/Property/Rental.json?")]
-	public class RentalListing {
-		[Key]
-		public int ListingId { get; set; }
+	public class RentalListing : TrademeListing{
+		
 		public string Title { get; set; }
 
 		public int RegionId { get; set; }

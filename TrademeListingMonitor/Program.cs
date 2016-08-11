@@ -8,8 +8,8 @@ namespace TrademeListingMonitor {
 	class Program {
 		static void Main(string[] args) {
 			TraceListener trace = new ConsoleTraceListener();
-			var rentalConnector = new TrademeRentalConnector(trace);
-			IEnumerable<RentalListing> rentalListings = rentalConnector.GetRentals();
+			var rentalConnector = new TrademeRentalConnector("v1/Search/Property/Rental.json?", trace);
+			IEnumerable<RentalListing> rentalListings = rentalConnector.GetListings();
 			//save listings to database.
 			TrademeStatsContext dbContext = new TrademeStatsContext();
 
@@ -20,7 +20,6 @@ namespace TrademeListingMonitor {
 
 			dbContext.SaveChanges();
 
-			// try build a GET request for trademe rental properties.
 		}
 }
 }
