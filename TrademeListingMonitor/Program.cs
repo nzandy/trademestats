@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using TradeMeAPI.Connectors;
 using TradeMeAPI.Models;
@@ -19,7 +20,8 @@ namespace TrademeListingMonitor {
 			}
 
 			dbContext.SaveChanges();
-
+			trace.WriteLine("Finished fetching listings, press enter to exit.");
+			Console.ReadLine();
 		}
 }
 }

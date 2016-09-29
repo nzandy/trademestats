@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using TradeMeAPI.Models;
-using Newtonsoft.Json;
-using System.Net.Http;
 
 namespace TradeMeAPI.Connectors {
 	public class TrademeRentalConnector : TrademeApiConnector<RentalListing>, IRentalConnector {
