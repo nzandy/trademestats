@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Diagnostics;
+using System.Linq;
 using TradeMeAPI.Connectors;
 using TradeMeAPI.Models;
 using TradeMeStats.DataModel;
@@ -15,8 +17,8 @@ namespace TrademeListingMonitor {
 			TrademeStatsContext dbContext = new TrademeStatsContext();
 
 			foreach (var rentalListing in rentalListings) {
-				trace.WriteLine($"Adding listing ID: {rentalListing.ListingId}");
-				dbContext.RentalListings.Add(rentalListing);
+				trace.WriteLine($"Adding/Updating listing ID: {rentalListing.ListingId}");
+				dbContext.RentalListings.AddOrUpdate(rentalListing);
 			}
 
 			dbContext.SaveChanges();
