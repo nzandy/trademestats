@@ -12,14 +12,13 @@ namespace TrademeListingMonitor {
 			var rentalConnector = new TrademeRentalConnector("v1/Search/Property/Rental.json?", trace);
 			IEnumerable<RentalListing> rentalListings = rentalConnector.GetListings();
 			//save listings to database.
-			TrademeStatsContext dbContext = new TrademeStatsContext();
-
+			TrademeStatsRepository respository = new TrademeStatsRepository(new TrademeStatsContext());
 			foreach (var rentalListing in rentalListings) {
 				trace.WriteLine($"Adding listing ID: {rentalListing.ListingId}");
-				dbContext.RentalListings.Add(rentalListing);
+				respository.AddRentalListing(rentalListing);
 			}
 
-			dbContext.SaveChanges();
+			respository.SaveChanges();
 			trace.WriteLine("Finished fetching listings, press enter to exit.");
 			Console.ReadLine();
 		}
