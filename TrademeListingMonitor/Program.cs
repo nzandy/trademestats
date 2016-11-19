@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Diagnostics;
+using System.Linq;
 using TradeMeAPI.Connectors;
 using TradeMeAPI.Models;
 using TradeMeStats.DataModel;
