@@ -6,6 +6,7 @@ using System.Linq;
 using TradeMeAPI.Connectors;
 using TradeMeAPI.Models;
 using TradeMeStats.DataModel;
+using System.Data.Entity;
 
 namespace TrademeListingMonitor {
 	class Program {

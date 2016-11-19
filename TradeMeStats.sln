@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrademeStats.DataModel", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrademeListingMonitor", "TrademeListingMonitor\TrademeListingMonitor.csproj", "{6FEE99D2-03E0-4BAA-9BEC-B015A39495A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListingApi", "ListingApi\ListingApi.csproj", "{A5CA6796-CFFC-4825-BA4C-634F28F62B06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6FEE99D2-03E0-4BAA-9BEC-B015A39495A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FEE99D2-03E0-4BAA-9BEC-B015A39495A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FEE99D2-03E0-4BAA-9BEC-B015A39495A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5CA6796-CFFC-4825-BA4C-634F28F62B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5CA6796-CFFC-4825-BA4C-634F28F62B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5CA6796-CFFC-4825-BA4C-634F28F62B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5CA6796-CFFC-4825-BA4C-634F28F62B06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

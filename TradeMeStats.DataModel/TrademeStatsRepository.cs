@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using TradeMeAPI.Models;
+
 
 namespace TradeMeStats.DataModel {
 
-	public class TrademeStatsRepository : ITrademeStatsRepository {
+	public class TrademeStatsRepository : IRentalListingRepository {
 
 		private readonly TrademeStatsContext _context;
 		public TrademeStatsRepository(TrademeStatsContext context) {
