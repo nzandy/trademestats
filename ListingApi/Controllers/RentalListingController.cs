@@ -10,11 +10,6 @@ namespace ListingApi.Controllers {
 	[Route("api/rentallistings")]
 	public class RentalListingController : ApiController {
 
-		public RentalListingController() {
-			
-		}
-	
-
 		[HttpGet]
 		public IEnumerable<TrademeListing> GetAllListings() {
 			TrademeStatsRepository repository = new TrademeStatsRepository(new TrademeStatsContext());
