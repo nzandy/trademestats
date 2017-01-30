@@ -15,8 +15,11 @@ namespace TradeMeStats.DataModel {
 			return _context.RentalListings;
 		}
 
-		public RentalListing AddRentalListing(RentalListing listing) {
-			return _context.RentalListings.Add(listing);
+		public void AddRentalListing(RentalListing listing) {
+			if (!_context.RentalListings.Any(l => l.ListingId == listing.ListingId)) {
+				// Only add if doesn't already exist.
+				_context.RentalListings.Add(listing);
+			}
 		}
 
 		public void SaveChanges() {
